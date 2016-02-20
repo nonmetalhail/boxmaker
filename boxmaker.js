@@ -10,7 +10,17 @@ function main(){
   var win = new Window( 'dialog', 'Boxmaker' ); 
   g = win.graphics;
   
-  var myBrush = g.newBrush(g.BrushType.SOLID_COLOR, [0.99, 0.99, 0.99, 1]);
+  // Illustrator changed their color theme from when I originally wrote this
+  // to be able to read the text in the prompt
+  // change the theme color called in var myBrush to match the original light theme or current dark theme
+  
+  var theme = {
+    dark:[0.3, 0.3, 0.3, 1],
+    light:[0.99, 0.99, 0.99, 1]
+  };
+
+  var myBrush = g.newBrush(g.BrushType.SOLID_COLOR, theme.dark);
+
   g.backgroundColor = myBrush;
   win.orientation='stack';
   win.p1= win.add("panel", undefined, undefined, {borderStyle:"black"}); 
